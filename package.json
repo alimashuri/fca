@@ -1,0 +1,120 @@
+{
+  "name": "fca",
+  "displayName": "VSCode Flutter Clean Architecture",
+  "description": "VSCode extension to help flutter programmers to implements clean architecture with S.O.L.I.D paradigm",
+  "version": "0.0.1",
+  "publisher": "AliMashuri",
+  "bugs": {
+    "url": "https://github.com/alimashuri/fca/issues",
+    "email": "alimashuri.id@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alimashuri/fca"
+  },
+  "homepage": "https://mashuri.web.id",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Snippets",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "clean-architecture",
+    "dart",
+    "flutter",
+    "bloc",
+    "state-management"
+  ],
+  "icon": "assets/logo.png",
+  "activationEvents": [
+    "onLanguage:dart",
+    "onCommand:extension.new_feature_bloc",
+    "workspaceContains:**/pubspec.yaml"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.setup_fca",
+        "title": "SetUp Clean Architecture",
+        "category": "ALI",
+        "icon": "assets/logo.png"
+      },
+      {
+        "command": "extension.new_feature_bloc",
+        "title": "New Feature (Bloc)",
+        "category": "ALI",
+        "icon": "assets/logo.png"
+      },
+      {
+        "command": "extension.new_feature_cubit",
+        "title": "New Feature (Cubit)",
+        "category": "ALI",
+        "icon": "assets/logo.png"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.new_feature_bloc",
+          "group": "aliCleanArchitectureGroup@1",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.new_feature_cubit",
+          "group": "aliCleanArchitectureGroup@1",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/change-case": "^2.3.1",
+    "@types/js-yaml": "^4.0.5",
+    "@types/lodash": "^4.14.191",
+    "@types/mkdirp": "^0.5.2",
+    "@types/rimraf": "^3.0.2",
+    "@types/semver": "^7.3.13",
+    "@types/vscode": "^1.74.0",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.4",
+    "@vscode/test-electron": "^2.2.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "tslint": "^5.12.1",
+    "vsce": "^1.81.1",
+    "vscode-test": "^1.2.0"
+  },
+  "dependencies": {
+    "change-case": "^4.1.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
+    "mkdirp": "^0.5.1",
+    "semver": "^7.3.8",
+		"axios": "^1.2.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "license": "MIT",
+  "pricing": "Free"
+}
